@@ -1,0 +1,5 @@
+C:\GitProjects\Gurps\DndCharacterGenerator\DndCharacterGenerator\bin\Debug\DndCharacterGenerator.exe
+C:\GitProjects\Gurps\DndCharacterGenerator\DndCharacterGenerator\bin\Debug\DndCharacterGenerator.pdb
+C:\GitProjects\Gurps\DndCharacterGenerator\DndCharacterGenerator\obj\Debug\ResolveAssemblyReference.cache
+C:\GitProjects\Gurps\DndCharacterGenerator\DndCharacterGenerator\obj\Debug\DndCharacterGenerator.exe
+C:\GitProjects\Gurps\DndCharacterGenerator\DndCharacterGenerator\obj\Debug\DndCharacterGenerator.pdb
