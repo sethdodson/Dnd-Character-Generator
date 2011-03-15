@@ -243,12 +243,12 @@ let getCharacter() =
         let prerequisiteValue (cc:CharacterClass) = 
             cc.Minimums 
             |> List.map(fun min -> match min with
-                                   | Strength(s) -> abilities.Strength.Stat - s + 1
-                                   | Dexterity(d) -> abilities.Dexterity.Stat - d + 1
-                                   | Constitution(c) -> abilities.Constitution.Stat - c + 1
-                                   | Intelligence(i) -> abilities.Intelligence.Stat - i + 1
-                                   | Wisdom(w) -> abilities.Wisdom.Stat - w + 1
-                                   | Charisma(c) -> abilities.Charisma.Stat - c + 1)            
+                                   | Strength(s) -> adjustedAbilities.Strength.Stat - s + 1
+                                   | Dexterity(d) -> adjustedAbilities.Dexterity.Stat - d + 1
+                                   | Constitution(c) -> adjustedAbilities.Constitution.Stat - c + 1
+                                   | Intelligence(i) -> adjustedAbilities.Intelligence.Stat - i + 1
+                                   | Wisdom(w) -> adjustedAbilities.Wisdom.Stat - w + 1
+                                   | Charisma(c) -> adjustedAbilities.Charisma.Stat - c + 1)            
             |> List.sum
         let (|PrestigeClass|MundaneClass|) cc = 
                match cc with
@@ -269,8 +269,9 @@ let getCharacter() =
             availableClasses
             |> List.map(fun cc -> (cc, (prerequisiteValue cc)))
             |> List.sortWith(getClassValue)
-        classesByValue |> List.tail
-    (abilities, race, chosenClass)
+        classesByValue |> List.rev |> List.head |> fst
+    (abilities, availableRaces, race, adjustedAbilities, availableClasses, chosenClass)
+    
 [<EntryPoint>]
 let main args =
     printfn "Arguments passed to function : %A" args
