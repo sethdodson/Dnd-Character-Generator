@@ -36,9 +36,17 @@ type Ability =
         | Charisma(s) -> Charisma(f s)
     static member (+) (a:Ability, i) = a.ChangeStat(fun s -> s + i)
     static member (+) (i, a:Ability) = a.ChangeStat(fun s -> s + i)
-        
+    static member (-) (a:Ability, i) = a.ChangeStat(fun s -> s - i)
+    static member (-) (i, a:Ability) = a.ChangeStat(fun s -> i - s)
 
-type Abilities = { Strength : Ability; Dexterity : Ability; Constitution : Ability; Intelligence : Ability; Wisdom : Ability; Charisma : Ability }
+type Abilities = 
+     { Strength : Ability; 
+       Dexterity : Ability; 
+       Constitution : Ability; 
+       Intelligence : Ability; 
+       Wisdom : Ability; 
+       Charisma : Ability }
+     member a.ToList = [ a.Strength; a.Dexterity; a.Constitution; a.Intelligence; a.Wisdom; a.Charisma; ]     
 
 let rollAbilityScores() = 
     let ability() = roll 3 6
@@ -144,49 +152,78 @@ type CharacterClass =
     | Cleric
     | Druid
     | Thief
-    | Bard
-    
-let meetsMinimum cc (abilities:Abilities) = 
-    let meetsMinimums = List.forall(fun sm -> (fst sm) >= (snd sm))   
-    let meetsSpecialistMinimums specialistAbility = meetsMinimums [(abilities.Intelligence.Stat, 9); specialistAbility; ] 
-    match cc with
-    | Fighter -> abilities.Strength.Stat >= 9 
-    | Paladin -> meetsMinimums [(abilities.Strength.Stat, 12); (abilities.Constitution.Stat, 9); (abilities.Wisdom.Stat, 13); (abilities.Charisma.Stat, 17);]
-    | Ranger -> meetsMinimums [(abilities.Strength.Stat, 13); (abilities.Dexterity.Stat, 13); (abilities.Constitution.Stat, 14); (abilities.Wisdom.Stat, 14);]
-    | Wizard(Mage) -> abilities.Intelligence.Stat >= 9
-    | Wizard(Abjurer) -> meetsSpecialistMinimums (abilities.Wisdom.Stat, 15)
-    | Wizard(Conjurer) -> meetsSpecialistMinimums (abilities.Constitution.Stat, 15)
-    | Wizard(Diviner) -> meetsSpecialistMinimums (abilities.Wisdom.Stat, 16)
-    | Wizard(Enchanter) -> meetsSpecialistMinimums (abilities.Charisma.Stat, 16)
-    | Wizard(Illusionist) -> meetsSpecialistMinimums (abilities.Dexterity.Stat, 16)
-    | Wizard(Invoker) -> meetsSpecialistMinimums (abilities.Constitution.Stat, 16)
-    | Wizard(Necromancer) -> meetsSpecialistMinimums (abilities.Wisdom.Stat, 16)
-    | Wizard(Transmuter) -> meetsSpecialistMinimums (abilities.Dexterity.Stat, 15)
-    | Cleric -> abilities.Wisdom.Stat >= 9
-    | Druid -> meetsMinimums [(abilities.Wisdom.Stat, 12); (abilities.Charisma.Stat, 15);] 
-    | Thief -> abilities.Dexterity.Stat >= 9
-    | Bard -> meetsMinimums [(abilities.Dexterity.Stat, 12); (abilities.Intelligence.Stat, 13); (abilities.Charisma.Stat, 15);]
-    
-let availableRaces characterClass = 
-    let all = [ Human; Dwarf; Elf; Gnome; HalfElf; Halfling; ]
-    match characterClass with
-    | Fighter -> all
-    | Paladin -> [ Human; ]
-    | Ranger -> [ Human; Elf; HalfElf; ]
-    | Wizard(Mage) -> [ Human; Elf; HalfElf; ]
-    | Wizard(Abjurer) -> [ Human; ]
-    | Wizard(Conjurer) -> [ Human; HalfElf; ]
-    | Wizard(Diviner) -> [ Human; HalfElf; Elf; ]
-    | Wizard(Enchanter) -> [ Human; HalfElf; Elf; ]
-    | Wizard(Illusionist) -> [ Human; Gnome; ]
-    | Wizard(Invoker) -> [ Human; ]
-    | Wizard(Necromancer) -> [ Human; ]
-    | Wizard(Transmuter) -> [ Human; HalfElf; ]
-    | Cleric -> all
-    | Druid -> [ Human; HalfElf; ]
-    | Thief -> all
-    | Bard -> [ Human; HalfElf; ]
-    
+    | Bard    
+    member cc.Minimums = 
+        match cc with
+        | Fighter -> [ Strength(9) ]
+        | Paladin -> [ Strength(12); Constitution(9); Wisdom(13); Charisma(17); ]
+        | Ranger -> [ Strength(13); Dexterity(13); Constitution(14); Wisdom(14); ]
+        | Wizard(Mage) -> [ Intelligence(9); ]
+        | Wizard(Abjurer) -> [ Intelligence(9); Wisdom(15); ]
+        | Wizard(Conjurer) -> [ Intelligence(9); Constitution(15); ]
+        | Wizard(Diviner) -> [ Intelligence(9); Wisdom(16); ]
+        | Wizard(Enchanter) -> [ Intelligence(9); Charisma(16); ]
+        | Wizard(Illusionist) -> [ Intelligence(9); Dexterity(16); ]
+        | Wizard(Invoker) -> [ Intelligence(9); Constitution(16); ]
+        | Wizard(Necromancer) -> [ Intelligence(9); Wisdom(16); ]
+        | Wizard(Transmuter) -> [ Intelligence(9); Dexterity(15); ]
+        | Cleric -> [ Wisdom(9); ]
+        | Druid -> [ Wisdom(12); Charisma(15); ]
+        | Thief -> [ Dexterity(9); ]
+        | Bard -> [ Dexterity(12); Intelligence(13); Charisma(15); ]        
+    member cc.MeetsMinimums (abilities:Abilities) = 
+        cc.Minimums |> List.forall(fun min -> match min with
+                                              | Strength(s) -> abilities.Strength.Stat >= s
+                                              | Dexterity(d) -> abilities.Dexterity.Stat >= d
+                                              | Constitution(c) -> abilities.Dexterity.Stat >= c
+                                              | Intelligence(i) -> abilities.Intelligence.Stat >= i
+                                              | Wisdom(w) -> abilities.Wisdom.Stat >= w
+                                              | Charisma(c) -> abilities.Charisma.Stat >= c)  
+    member cc.PrimeRequisites =     
+        match cc with
+        | Fighter -> [ Strength; ]
+        | Paladin -> [ Strength; Charisma; ]
+        | Ranger -> [ Strength; Dexterity; Wisdom; ]
+        | Wizard(_) -> [ Intelligence; ]
+        | Cleric -> [ Wisdom; ]
+        | Druid -> [ Wisdom; Charisma; ]
+        | Thief -> [ Dexterity; ]
+        | Bard -> [ Dexterity; Charisma; ]        
+    static member AvailableClasses race abilities = 
+        let meetsRequirements = List.filter(fun (c:CharacterClass) -> c.MeetsMinimums abilities)
+        match race with 
+        | Human -> meetsRequirements [ Fighter; 
+                                       Paladin; 
+                                       Ranger; 
+                                       Wizard(Mage); 
+                                       Wizard(Abjurer); 
+                                       Wizard(Conjurer); 
+                                       Wizard(Diviner); 
+                                       Wizard(Enchanter); 
+                                       Wizard(Illusionist); 
+                                       Wizard(Invoker);
+                                       Wizard(Necromancer);
+                                       Wizard(Transmuter);
+                                       Cleric;
+                                       Druid;
+                                       Thief;
+                                       Bard; ]
+        | Dwarf -> meetsRequirements [ Fighter; Cleric; Thief; ]
+        | Elf -> meetsRequirements [ Fighter; Ranger; Wizard(Mage); Wizard(Diviner); Wizard(Enchanter); Cleric; Thief; ]
+        | Gnome -> meetsRequirements [ Fighter; Wizard(Illusionist); Cleric; Thief; ]
+        | HalfElf -> meetsRequirements [ Fighter; 
+                                         Ranger; 
+                                         Wizard(Mage); 
+                                         Wizard(Conjurer); 
+                                         Wizard(Diviner); 
+                                         Wizard(Enchanter);
+                                         Wizard(Transmuter);
+                                         Cleric;
+                                         Druid;
+                                         Thief;
+                                         Bard; ]
+        | Halfling -> meetsRequirements [ Fighter; Cleric; Thief; ]
+            
 let racialAdjustments (abilities:Abilities) race = 
     match race with
     | Human -> abilities
@@ -194,36 +231,46 @@ let racialAdjustments (abilities:Abilities) race =
     | Dwarf -> { abilities with Constitution = (abilities.Constitution + 1); Charisma = (abilities.Charisma - 1); }
     | Elf -> { abilities with Dexterity = (abilities.Dexterity + 1); Constitution = (abilities.Constitution - 1); }
     | Gnome -> { abilities with Intelligence = (abilities.Intelligence + 1); Wisdom = (abilities.Wisdom - 1); }
-    | Halfling -> { abilities with Dexterity = abilities.Dexterity + 1; Strength = abilities.Strength - 1; }
-
-//let availableClasses abilities race = 
-        
+    | Halfling -> { abilities with Dexterity = abilities.Dexterity + 1; Strength = abilities.Strength - 1; }    
     
-//    match characterClass with 
-//    | Fighter -> [
-//    | Human -> [ Fighter; Paladin; Ranger; Mage; Specialist(Necromancer); Specialist(Illusionist); Cleric; Druid; Thief; Bard; ]
-//    | Dwarf -> [ Fighter; ]
-//    | _ -> List.empty
-//    member cc.AvailableRaces = 
-//        let all = [ Human; Dwarf; Elf; Gnome; HalfElf; Halfling; ]
-//        match cc with
-//        | Fighter -> all
-//        | 
-//        
-//    static member AvailableClasses race abilities = 
-//        match race with
-//        | Human -> 
-////        | Human
-////    | Dwarf 
-////    | Elf
-////    | Gnome
-////    | HalfElf
-////    | Halfling
-//let getCharacter() = 
-//    let availableRaces = Race.AvailableRaces (rollAbilityScores())
-//    let count = availableRaces.Length
-//    List.nth availableRaces (random.Next(0, count))
-    
+let getCharacter() = 
+    let abilities = rollAbilityScores()
+    let availableRaces = Race.AvailableRaces abilities
+    let race = List.nth availableRaces (random.Next(0, availableRaces.Length))
+    let adjustedAbilities = racialAdjustments abilities race
+    let availableClasses = CharacterClass.AvailableClasses race adjustedAbilities     
+    let chosenClass = 
+        let prerequisiteValue (cc:CharacterClass) = 
+            cc.Minimums 
+            |> List.map(fun min -> match min with
+                                   | Strength(s) -> abilities.Strength.Stat - s + 1
+                                   | Dexterity(d) -> abilities.Dexterity.Stat - d + 1
+                                   | Constitution(c) -> abilities.Constitution.Stat - c + 1
+                                   | Intelligence(i) -> abilities.Intelligence.Stat - i + 1
+                                   | Wisdom(w) -> abilities.Wisdom.Stat - w + 1
+                                   | Charisma(c) -> abilities.Charisma.Stat - c + 1)            
+            |> List.sum
+        let (|PrestigeClass|MundaneClass|) cc = 
+               match cc with
+               | Wizard(Mage) -> MundaneClass
+               | Wizard(_) -> PrestigeClass
+               | Paladin -> PrestigeClass
+               | Ranger -> PrestigeClass
+               | Bard -> PrestigeClass
+               | _ -> MundaneClass
+        let getClassValue ccp1 ccp2 = 
+            match (ccp1, ccp2) with
+            | ((_, prereq1), (_, prereq2)) when prereq1 > prereq2 -> 1
+            | ((_, prereq1), (_, prereq2)) when prereq1 < prereq2 -> -1
+            | ((PrestigeClass, _), (MundaneClass, _)) -> 1
+            | ((MundaneClass, _), (PrestigeClass, _)) -> -1
+            | _ -> 0
+        let classesByValue = 
+            availableClasses
+            |> List.map(fun cc -> (cc, (prerequisiteValue cc)))
+            |> List.sortWith(getClassValue)
+        classesByValue |> List.tail
+    (abilities, race, chosenClass)
 [<EntryPoint>]
 let main args =
     printfn "Arguments passed to function : %A" args
