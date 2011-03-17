@@ -5,8 +5,13 @@
 open Stats
 open Dice
 open Races         
-open Classes           
+open Classes          
+open System 
     
+type Sex = 
+    | Male
+    | Female
+
 let getCharacter() = 
     let abilities = rollAbilityScores()
     let availableRaces = Race.AvailableRaces abilities
@@ -45,10 +50,14 @@ let getCharacter() =
             |> List.sortWith(getClassValue)
         classesByValue |> List.rev |> List.head |> fst
     let alignment = List.nth chosenClass.AvailableAlignments (random.Next(0, chosenClass.AvailableAlignments.Length))
-    (alignment, race, chosenClass, 1)
+    let sex = 
+        let coin = (random.Next(0, 1))
+        if coin = 0 then Male else Female
+    (alignment, race, chosenClass, 1, sex)
     
 [<EntryPoint>]
 let main args =
     printfn "Arguments passed to function : %A" args
+    Console.ReadLine() |> ignore
     // Return 0. This indicates success.
     0
