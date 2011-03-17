@@ -41,6 +41,7 @@
     <Compile Include="Dice.fs" />
     <Compile Include="Stats.fs" />
     <Compile Include="Races.fs" />
+    <Compile Include="Alignments.fs" />
     <Compile Include="Classes.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

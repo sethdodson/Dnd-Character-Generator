@@ -2,6 +2,7 @@
 
 open Stats
 open Races
+open Alignments
 
 type Specialization = 
     | Mage
@@ -59,6 +60,16 @@ type CharacterClass =
         | Druid -> [ Wisdom; Charisma; ]
         | Thief -> [ Dexterity; ]
         | Bard -> [ Dexterity; Charisma; ]        
+    member cc.AvailableAlignments = 
+        match cc with
+        | Fighter -> alignments
+        | Paladin -> [ (Lawful, Good); ]
+        | Ranger -> [ (Lawful, Good); (Legality.Neutral, Good); (Chaotic, Good); ]
+        | Wizard(_) -> alignments
+        | Cleric -> alignments
+        | Druid -> [ (Legality.Neutral, Neutral); ]
+        | Thief -> alignments |> List.filter(fun al -> ((fst al) <> Lawful) || ((snd al) <> Good))
+        | Bard -> alignments |> List.filter(fun al -> ((fst al) = Legality.Neutral) || (snd al) = Neutral)
     static member AvailableClasses race abilities = 
         let meetsRequirements = List.filter(fun (c:CharacterClass) -> c.MeetsMinimums abilities)
         match race with 

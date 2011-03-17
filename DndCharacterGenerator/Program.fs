@@ -44,7 +44,8 @@ let getCharacter() =
             |> List.map(fun cc -> (cc, (prerequisiteValue cc)))
             |> List.sortWith(getClassValue)
         classesByValue |> List.rev |> List.head |> fst
-    (race, chosenClass, 1)
+    let alignment = List.nth chosenClass.AvailableAlignments (random.Next(0, chosenClass.AvailableAlignments.Length))
+    (alignment, race, chosenClass, 1)
     
 [<EntryPoint>]
 let main args =
