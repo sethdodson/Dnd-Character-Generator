@@ -17,7 +17,8 @@ let getCharacter() =
     let abilities = rollAbilityScores()
     let availableRaces = Race.AvailableRaces abilities
     let race = List.nth availableRaces (random.Next(0, availableRaces.Length))
-    let adjustedAbilities = racialAdjustments abilities race     
+    let age = characterAge race
+    let adjustedAbilities = agingEffects (racialAdjustments abilities race) (race, age)
     let chosenClass = 
         let prerequisiteValue (cc:CharacterClass) = 
             cc.Minimums 
@@ -52,7 +53,7 @@ let getCharacter() =
     let sex = 
         let coin = (random.Next(0, 1))
         if coin = 0 then Male else Female
-    (alignment, race, chosenClass, 1, sex, (characterAge race))
+    (alignment, race, chosenClass, 1, sex, age)
     
 [<EntryPoint>]
 let main args =

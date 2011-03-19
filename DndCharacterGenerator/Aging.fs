@@ -52,4 +52,4 @@ let agingEffects (abilities:Abilities) = function
                         Dexterity = abilities.Dexterity - 3;
                         Constitution = abilities.Constitution - 3;
                         Intelligence = abilities.Intelligence + 2;
-                        Wisdom = abilities.Wisdom + 3; }                                               
+                        Wisdom = abilities.Wisdom + 3; }                                                                                              
