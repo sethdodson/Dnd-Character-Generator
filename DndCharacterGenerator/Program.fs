@@ -7,17 +7,17 @@ open Dice
 open Races         
 open Classes          
 open System 
+open Aging
     
 type Sex = 
     | Male
     | Female
-
+                                               
 let getCharacter() = 
     let abilities = rollAbilityScores()
     let availableRaces = Race.AvailableRaces abilities
     let race = List.nth availableRaces (random.Next(0, availableRaces.Length))
-    let adjustedAbilities = racialAdjustments abilities race
-    let availableClasses = CharacterClass.AvailableClasses race adjustedAbilities     
+    let adjustedAbilities = racialAdjustments abilities race     
     let chosenClass = 
         let prerequisiteValue (cc:CharacterClass) = 
             cc.Minimums 
@@ -29,8 +29,7 @@ let getCharacter() =
                                    | Wisdom(w) -> adjustedAbilities.Wisdom.Stat - w + 1
                                    | Charisma(c) -> adjustedAbilities.Charisma.Stat - c + 1)            
             |> List.sum
-        let (|PrestigeClass|MundaneClass|) cc = 
-               match cc with
+        let (|PrestigeClass|MundaneClass|) = function
                | Wizard(Mage) -> MundaneClass
                | Wizard(_) -> PrestigeClass
                | Paladin -> PrestigeClass
@@ -45,15 +44,15 @@ let getCharacter() =
             | ((MundaneClass, _), (PrestigeClass, _)) -> -1
             | _ -> 0
         let classesByValue = 
-            availableClasses
-            |> List.map(fun cc -> (cc, (prerequisiteValue cc)))
-            |> List.sortWith(getClassValue)
-        classesByValue |> List.rev |> List.head |> fst
+            (CharacterClass.AvailableClasses race)
+            >> List.map(fun cc -> (cc, (prerequisiteValue cc)))
+            >> List.sortWith(getClassValue)
+        adjustedAbilities |> classesByValue |> List.rev |> List.head |> fst
     let alignment = List.nth chosenClass.AvailableAlignments (random.Next(0, chosenClass.AvailableAlignments.Length))
     let sex = 
         let coin = (random.Next(0, 1))
         if coin = 0 then Male else Female
-    (alignment, race, chosenClass, 1, sex)
+    (alignment, race, chosenClass, 1, sex, (characterAge race))
     
 [<EntryPoint>]
 let main args =

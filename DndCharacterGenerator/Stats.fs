@@ -22,6 +22,7 @@ type Ability =
         | Strength(s) -> Strength(f s)
         | Dexterity(s) -> Dexterity(f s)
         | Constitution(s) -> Constitution(f s)
+        
         | Intelligence(s) -> Intelligence(f s)
         | Wisdom(s) -> Wisdom(f s)
         | Charisma(s) -> Charisma(f s)
