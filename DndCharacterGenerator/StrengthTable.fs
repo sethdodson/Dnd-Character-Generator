@@ -44,3 +44,29 @@ let damageAdjustment = function
     | (Strength(s), _) when s < 25 -> s - 12
     | (Strength(25), _) -> 14
     | _ -> failwith "Impossible strength"
+    
+let weightAllow = function
+    | (Strength(s), _) when s < 3 -> 1
+    | (Strength(3), _) -> 5
+    | (Strength(s), _) when s < 6 -> 10
+    | (Strength(s), _) when s < 8 -> 20 
+    | (Strength(s), _) when s < 10 -> 35
+    | (Strength(s), _) when s < 12 -> 40
+    | (Strength(s), _) when s < 14 -> 45
+    | (Strength(s), _) when s < 16 -> 55
+    | (Strength(16), _) -> 70
+    | (Strength(17), _) -> 85
+    | (Strength(18), 0) -> 110
+    | (Strength(18), ex) when ex < 51 -> 135
+    | (Strength(18), ex) when ex < 76 -> 160
+    | (Strength(18), ex) when ex < 91 -> 185
+    | (Strength(18), ex) when ex < 100 -> 235
+    | (Strength(18), 100) -> 335
+    | (Strength(19), _) -> 485
+    | (Strength(20), _) -> 535
+    | (Strength(21), _) -> 635
+    | (Strength(22), _) -> 785
+    | (Strength(23), _) -> 935
+    | (Strength(24), _) -> 1235
+    | (Strength(25), _) -> 1535
+    | _ -> failwith "Impossible strength"
