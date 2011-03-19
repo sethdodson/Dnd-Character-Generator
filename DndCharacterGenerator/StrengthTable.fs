@@ -70,3 +70,30 @@ let weightAllow = function
     | (Strength(24), _) -> 1235
     | (Strength(25), _) -> 1535
     | _ -> failwith "Impossible strength"
+    
+let maxPress = function
+    | (Strength(1), _) -> 3
+    | (Strength(2), _) -> 5
+    | (Strength(3), _) -> 10
+    | (Strength(s), _) when s < 6 -> 25
+    | (Strength(s), _) when s < 8 -> 55
+    | (Strength(s), _) when s < 10 -> 90 
+    | (Strength(s), _) when s < 12 -> 115
+    | (Strength(s), _) when s < 14 -> 140
+    | (Strength(s), _) when s < 16 -> 170 
+    | (Strength(16), _) -> 195
+    | (Strength(17), _) -> 220
+    | (Strength(18), 0) -> 255
+    | (Strength(18), 51) -> 280
+    | (Strength(18), 76) -> 305
+    | (Strength(18), 91) -> 330
+    | (Strength(18), 100) -> 380
+    | (Strength(18), 100) -> 480
+    | (Strength(19), _) -> 640
+    | (Strength(20), _) -> 700
+    | (Strength(21), _) -> 810
+    | (Strength(22), _) -> 970
+    | (Strength(23), _) -> 1130 
+    | (Strength(24), _) -> 1440
+    | (Strength(25), _) -> 1750
+    | _ -> failwith "Impossible strength" 
