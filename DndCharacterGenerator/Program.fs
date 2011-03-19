@@ -55,7 +55,10 @@ let getCharacter() =
     let charWeight = (weight (race, sex))
     let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)
     let charHitProbability = hitProbability (adjustedAbilities.Strength, charExceptionalStrength)
-    (alignment, race, chosenClass, 1, adjustedAbilities, charExceptionalStrength, sex, age, charHeight, charWeight, charHitProbability)
+    let charDamageAdjustment = damageAdjustment (adjustedAbilities.Strength, charExceptionalStrength)
+    (alignment, race, chosenClass, 1, adjustedAbilities, 
+     charExceptionalStrength, sex, age, charHeight, charWeight, 
+     charHitProbability, charDamageAdjustment)
     
 [<EntryPoint>]
 let main args =

@@ -29,3 +29,18 @@ let hitProbability = function
     | (Strength(24), _) -> 6
     | (Strength(25), _) -> 7
     | _ -> failwith "Impossible strength"   
+    
+let damageAdjustment = function
+    | (Strength(1), _) -> -4
+    | (Strength(2), _) -> -2
+    | (Strength(s), _) when s < 6 -> -1
+    | (Strength(s), _) when s < 16 -> 0
+    | (Strength(s), _) when s < 18 -> 1
+    | (Strength(18), 0) -> 2
+    | (Strength(18), ex) when ex < 76 -> 3
+    | (Strength(18), ex) when ex < 91 -> 4
+    | (Strength(18), ex) when ex < 100 -> 5
+    | (Strength(18), 100) -> 6
+    | (Strength(s), _) when s < 25 -> s - 12
+    | (Strength(25), _) -> 14
+    | _ -> failwith "Impossible strength"
