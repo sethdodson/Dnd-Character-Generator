@@ -3,7 +3,7 @@
 open Dice
 
 type Ability = 
-    | Strength of int
+    | Strength of int 
     | Dexterity of int
     | Constitution of int
     | Intelligence of int
@@ -21,8 +21,7 @@ type Ability =
         match a with
         | Strength(s) -> Strength(f s)
         | Dexterity(s) -> Dexterity(f s)
-        | Constitution(s) -> Constitution(f s)
-        
+        | Constitution(s) -> Constitution(f s)        
         | Intelligence(s) -> Intelligence(f s)
         | Wisdom(s) -> Wisdom(f s)
         | Charisma(s) -> Charisma(f s)

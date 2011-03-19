@@ -4,7 +4,7 @@ open Dice
 open Races
 open Stats
 
-let characterAge = function
+let startingAge = function
     | Dwarf -> 40 + (roll 5 6)
     | Elf -> 100 + (roll 5 6)
     | Gnome -> 60 + (roll 3 12)

@@ -9,12 +9,13 @@ open Classes
 open System 
 open Aging
 open BasicPhysical   
+open StrengthTable
                                                
 let getCharacter() = 
     let abilities = rollAbilityScores()
     let availableRaces = Race.AvailableRaces abilities
     let race = List.nth availableRaces (random.Next(0, availableRaces.Length))
-    let age = characterAge race
+    let age = startingAge race
     let adjustedAbilities = agingEffects (racialAdjustments abilities race) (race, age)
     let chosenClass = 
         let prerequisiteValue (cc:CharacterClass) = 
@@ -52,7 +53,9 @@ let getCharacter() =
         if coin = 0 then Male else Female
     let charHeight = (height (race, sex))
     let charWeight = (weight (race, sex))
-    (alignment, race, chosenClass, 1, sex, age, charHeight, charWeight)
+    let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)
+    let charHitProbability = hitProbability (adjustedAbilities.Strength, charExceptionalStrength)
+    (alignment, race, chosenClass, 1, adjustedAbilities, charExceptionalStrength, sex, age, charHeight, charWeight, charHitProbability)
     
 [<EntryPoint>]
 let main args =
