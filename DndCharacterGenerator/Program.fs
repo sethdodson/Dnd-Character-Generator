@@ -61,7 +61,8 @@ let getCharacter() =
      charHitProbability, charDamageAdjustment, 
      (weightAllow (adjustedAbilities.Strength, charExceptionalStrength)),
      (maxPress (adjustedAbilities.Strength, charExceptionalStrength)),
-     (openDoors (adjustedAbilities.Strength, charExceptionalStrength)))
+     (openDoors (adjustedAbilities.Strength, charExceptionalStrength)),
+     (openHardenedDoors (adjustedAbilities.Strength, charExceptionalStrength)))
     
 [<EntryPoint>]
 let main args =

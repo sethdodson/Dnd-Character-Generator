@@ -120,3 +120,17 @@ let openDoors = function
     | (Strength(s), _) when s < 26 -> 19
     | _ -> failwith "Impossible strength"
     
+let openHardenedDoors = function
+    | (Strength(s), _) when s < 18 -> 0
+    | (Strength(18), ex) when ex < 91 -> 0
+    | (Strength(18), ex) when ex < 100 -> 3
+    | (Strength(18), 100) -> 6
+    | (Strength(19), _) -> 8
+    | (Strength(20), _) -> 10
+    | (Strength(21), _) -> 12
+    | (Strength(22), _) -> 14
+    | (Strength(23), _) -> 16
+    | (Strength(24), _) -> 17
+    | (Strength(25), _) -> 18
+    | _ -> failwith "Impossible strength"
+    
