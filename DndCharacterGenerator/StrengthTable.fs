@@ -134,3 +134,25 @@ let openHardenedDoors = function
     | (Strength(25), _) -> 18
     | _ -> failwith "Impossible strength"
     
+let bendBars = function
+    | (Strength(s), _) when s < 8 -> 0
+    | (Strength(s), _) when s < 10 -> 1
+    | (Strength(s), _) when s < 12 -> 2
+    | (Strength(s), _) when s < 14 -> 4
+    | (Strength(s), _) when s < 16 -> 7
+    | (Strength(16), _) -> 10
+    | (Strength(17), _) -> 13
+    | (Strength(18), 0) -> 16
+    | (Strength(18), ex) when ex < 51 -> 20
+    | (Strength(18), ex) when ex < 76 -> 25
+    | (Strength(18), ex) when ex < 91 -> 30 
+    | (Strength(18), ex) when ex < 100 -> 35
+    | (Strength(18), 100) -> 40
+    | (Strength(19), _) -> 50
+    | (Strength(20), _) -> 60
+    | (Strength(21), _) -> 70
+    | (Strength(22), _) -> 80
+    | (Strength(23), _) -> 90
+    | (Strength(24), _) -> 95
+    | (Strength(25), _) -> 99
+    | _ -> failwith "Impossible strength"   
