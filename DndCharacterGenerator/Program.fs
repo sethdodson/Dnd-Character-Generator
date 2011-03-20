@@ -65,7 +65,9 @@ let getCharacter() =
      (openDoors (adjustedAbilities.Strength, charExceptionalStrength)),
      (openHardenedDoors (adjustedAbilities.Strength, charExceptionalStrength)),
      (bendBars (adjustedAbilities.Strength, charExceptionalStrength)),
-     (dexReactionAdjustment adjustedAbilities.Dexterity))
+     (dexReactionAdjustment adjustedAbilities.Dexterity),
+     (missileAttackAdjustment adjustedAbilities.Dexterity),
+     (defensiveAdjustment adjustedAbilities.Dexterity))
     
 [<EntryPoint>]
 let main args =
