@@ -10,6 +10,7 @@ open System
 open Aging
 open BasicPhysical   
 open StrengthTable
+open DexterityTable
                                                
 let getCharacter() = 
     let abilities = rollAbilityScores()
@@ -62,7 +63,9 @@ let getCharacter() =
      (weightAllow (adjustedAbilities.Strength, charExceptionalStrength)),
      (maxPress (adjustedAbilities.Strength, charExceptionalStrength)),
      (openDoors (adjustedAbilities.Strength, charExceptionalStrength)),
-     (openHardenedDoors (adjustedAbilities.Strength, charExceptionalStrength)))
+     (openHardenedDoors (adjustedAbilities.Strength, charExceptionalStrength)),
+     (bendBars (adjustedAbilities.Strength, charExceptionalStrength)),
+     (dexReactionAdjustment adjustedAbilities.Dexterity))
     
 [<EntryPoint>]
 let main args =
