@@ -97,3 +97,26 @@ let maxPress = function
     | (Strength(24), _) -> 1440
     | (Strength(25), _) -> 1750
     | _ -> failwith "Impossible strength" 
+    
+let openDoors = function
+    | (Strength(s), _) when s < 3 -> 1
+    | (Strength(3), _) -> 2
+    | (Strength(s), _) when s < 6 -> 3
+    | (Strength(s), _) when s < 8 -> 4
+    | (Strength(s), _) when s < 10 -> 5
+    | (Strength(s), _) when s < 12 -> 6
+    | (Strength(s), _) when s < 14 -> 7
+    | (Strength(s), _) when s < 16 -> 8
+    | (Strength(16), _) -> 9 
+    | (Strength(17), _) -> 10
+    | (Strength(18), 0) -> 11
+    | (Strength(18), ex) when ex < 51 -> 12
+    | (Strength(18), ex) when ex < 76 -> 14
+    | (Strength(18), ex) when ex < 100 -> 15
+    | (Strength(18), 100) -> 16
+    | (Strength(19), _) -> 16
+    | (Strength(s) , _) when s < 22 -> 17
+    | (Strength(s), _) when s < 24 -> 18
+    | (Strength(s), _) when s < 26 -> 19
+    | _ -> failwith "Impossible strength"
+    

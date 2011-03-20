@@ -59,7 +59,9 @@ let getCharacter() =
     (alignment, race, chosenClass, 1, adjustedAbilities, 
      charExceptionalStrength, sex, age, charHeight, charWeight, 
      charHitProbability, charDamageAdjustment, 
-     (weightAllow (adjustedAbilities.Strength, charExceptionalStrength)))
+     (weightAllow (adjustedAbilities.Strength, charExceptionalStrength)),
+     (maxPress (adjustedAbilities.Strength, charExceptionalStrength)),
+     (openDoors (adjustedAbilities.Strength, charExceptionalStrength)))
     
 [<EntryPoint>]
 let main args =
