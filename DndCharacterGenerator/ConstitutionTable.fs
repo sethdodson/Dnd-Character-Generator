@@ -24,3 +24,10 @@ let hitPointMinimum = function
     | (Constitution(s), Warrior) when s < 23 -> 3
     | (Constitution(s), Warrior) when s < 26 -> 4
     | _ -> 1    
+    
+let systemShock = function
+    | Constitution(s) when s < 14 -> (s + 5) * 5
+    | Constitution(s) when s < 18 -> ((s - 13) * 2) + 90
+    | Constitution(_) -> 100
+    | _ -> failwith "Not constitution"
+        
