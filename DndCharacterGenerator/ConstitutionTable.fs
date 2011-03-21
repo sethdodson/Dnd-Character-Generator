@@ -50,3 +50,8 @@ let poisonSaveBonus = function
     | Constitution(23) | Constitution(24) -> 3
     | Constitution(_) -> 4
     | _ -> failwith "Not constitution"
+    
+let regenerationTurns = function
+    | Constitution(s) when s < 20 -> None
+    | Constitution(s) -> Some((26 - s))
+    | _ -> failwith "Not constitution"    
