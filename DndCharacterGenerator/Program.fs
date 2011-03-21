@@ -70,7 +70,8 @@ let getCharacter() =
      (missileAttackAdjustment adjustedAbilities.Dexterity),
      (defensiveAdjustment adjustedAbilities.Dexterity),
      (hitPointAdjustment (adjustedAbilities.Constitution, chosenClass.Type)),
-     (systemShock adjustedAbilities.Constitution))
+     (systemShock adjustedAbilities.Constitution),
+     (resurrectionSurvival adjustedAbilities.Constitution))
     
 [<EntryPoint>]
 let main args =

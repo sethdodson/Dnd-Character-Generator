@@ -26,8 +26,17 @@ let hitPointMinimum = function
     | _ -> 1    
     
 let systemShock = function
-    | Constitution(s) when s < 14 -> (s + 5) * 5
-    | Constitution(s) when s < 18 -> ((s - 13) * 2) + 90
+    | Constitution(s) when s < 14 -> (s + 4) * 5
+    | Constitution(14) -> 88
+    | Constitution(15) -> 90
+    | Constitution(16) -> 95
+    | Constitution(17) -> 97
+    | Constitution(s) when s < 25 -> 99
     | Constitution(_) -> 100
     | _ -> failwith "Not constitution"
         
+let resurrectionSurvival = function
+    | Constitution(s) when s < 14 -> (s + 5) * 5
+    | Constitution(s) when s < 18 -> ((s - 13) * 2) + 90
+    | Constitution(_) -> 100
+    | _ -> failwith "Not constitution"     
