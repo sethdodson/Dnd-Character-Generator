@@ -12,6 +12,7 @@ open BasicPhysical
 open StrengthTable
 open DexterityTable
 open ConstitutionTable
+open IntelligenceTable
                                                
 let getCharacter() = 
     let abilities = rollAbilityScores()
@@ -72,7 +73,8 @@ let getCharacter() =
      (hitPointAdjustment (adjustedAbilities.Constitution, chosenClass.Type)),
      (systemShock adjustedAbilities.Constitution),
      (resurrectionSurvival adjustedAbilities.Constitution),
-     (poisonSaveBonus adjustedAbilities.Constitution))
+     (poisonSaveBonus adjustedAbilities.Constitution),
+     (numberOfLanguages adjustedAbilities.Intelligence))
     
 [<EntryPoint>]
 let main args =
