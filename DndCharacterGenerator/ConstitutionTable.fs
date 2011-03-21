@@ -40,3 +40,13 @@ let resurrectionSurvival = function
     | Constitution(s) when s < 18 -> ((s - 13) * 2) + 90
     | Constitution(_) -> 100
     | _ -> failwith "Not constitution"     
+    
+let poisonSaveBonus = function
+    | Constitution(1) -> -2
+    | Constitution(2) -> -1
+    | Constitution(s) when s < 19 -> 0
+    | Constitution(19) | Constitution(20) -> 1
+    | Constitution(21) | Constitution(22) -> 2
+    | Constitution(23) | Constitution(24) -> 3
+    | Constitution(_) -> 4
+    | _ -> failwith "Not constitution"
