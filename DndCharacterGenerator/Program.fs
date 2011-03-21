@@ -11,6 +11,7 @@ open Aging
 open BasicPhysical   
 open StrengthTable
 open DexterityTable
+open ConstitutionTable
                                                
 let getCharacter() = 
     let abilities = rollAbilityScores()
@@ -67,7 +68,8 @@ let getCharacter() =
      (bendBars (adjustedAbilities.Strength, charExceptionalStrength)),
      (dexReactionAdjustment adjustedAbilities.Dexterity),
      (missileAttackAdjustment adjustedAbilities.Dexterity),
-     (defensiveAdjustment adjustedAbilities.Dexterity))
+     (defensiveAdjustment adjustedAbilities.Dexterity),
+     (hitPointAdjustment (adjustedAbilities.Constitution, chosenClass.Type)))
     
 [<EntryPoint>]
 let main args =

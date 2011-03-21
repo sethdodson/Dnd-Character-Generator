@@ -47,6 +47,7 @@
     <Compile Include="BasicPhysical.fs" />
     <Compile Include="StrengthTable.fs" />
     <Compile Include="DexterityTable.fs" />
+    <Compile Include="ConstitutionTable.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" />
