@@ -12,3 +12,13 @@ let numberOfLanguages = function
     | Intelligence(24) -> 15
     | Intelligence(25) -> 20
     | _ -> failwith "Not intelligence"
+    
+let maxSpellLevel = function
+    | Intelligence(s) when s < 9 -> None
+    | Intelligence(9) -> Some(4)
+    | Intelligence(10) | Intelligence(11) -> Some(5)
+    | Intelligence(12) | Intelligence(13) -> Some(6)
+    | Intelligence(14) | Intelligence(15) -> Some(7)
+    | Intelligence(16) | Intelligence(17) -> Some(8)
+    | Intelligence(_) -> Some(9)
+    | _ -> failwith "Not intelligence"

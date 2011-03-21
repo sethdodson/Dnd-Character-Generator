@@ -74,7 +74,8 @@ let getCharacter() =
      (systemShock adjustedAbilities.Constitution),
      (resurrectionSurvival adjustedAbilities.Constitution),
      (poisonSaveBonus adjustedAbilities.Constitution),
-     (numberOfLanguages adjustedAbilities.Intelligence))
+     (numberOfLanguages adjustedAbilities.Intelligence),
+     (maxSpellLevel adjustedAbilities.Intelligence))
     
 [<EntryPoint>]
 let main args =
