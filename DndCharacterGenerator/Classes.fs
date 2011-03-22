@@ -4,12 +4,6 @@ open Stats
 open Races
 open Alignments
 
-type ClassType = 
-    | Warrior
-    | Wizard
-    | Rogue
-    | Priest
-
 type Specialization = 
     | Mage
     | Abjurer
@@ -30,15 +24,6 @@ type CharacterClass =
     | Druid
     | Thief
     | Bard    
-    member cc.Type = 
-        match cc with
-        | Fighter -> Warrior
-        | Paladin -> Warrior
-        | Ranger -> Warrior
-        | Wizard(_) -> ClassType.Wizard
-        | Cleric -> Priest
-        | Druid -> Priest
-        | _ -> Rogue
     member cc.Minimums = 
         match cc with
         | Fighter -> [ Strength(9) ]
@@ -119,3 +104,13 @@ type CharacterClass =
                                          Thief;
                                          Bard; ]
         | Halfling -> meetsRequirements [ Fighter; Cleric; Thief; ]
+        
+let (|Warrior|Thaumaturge|Rogue|Priest|) = function
+    | Fighter -> Warrior
+    | Paladin -> Warrior
+    | Ranger -> Warrior
+    | Wizard(_) -> Thaumaturge
+    | Cleric -> Priest
+    | Druid -> Priest
+    | Thief -> Rogue
+    | Bard -> Rogue

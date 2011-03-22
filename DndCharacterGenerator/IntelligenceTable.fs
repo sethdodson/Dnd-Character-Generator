@@ -1,6 +1,7 @@
 ﻿module IntelligenceTable
 
 open Stats
+open Classes
 
 let numberOfLanguages = function
     | Intelligence(1) -> 0
@@ -13,7 +14,7 @@ let numberOfLanguages = function
     | Intelligence(25) -> 20
     | _ -> failwith "Not intelligence"
     
-let maxSpellLevel = function
+let maxWizardSpellLevel = function
     | Intelligence(s) when s < 9 -> None
     | Intelligence(9) -> Some(4)
     | Intelligence(10) | Intelligence(11) -> Some(5)
@@ -22,3 +23,7 @@ let maxSpellLevel = function
     | Intelligence(16) | Intelligence(17) -> Some(8)
     | Intelligence(_) -> Some(9)
     | _ -> failwith "Not intelligence"
+    
+let maxSpellLevel = function
+    | (Thaumaturge, s) -> maxWizardSpellLevel s
+    | _ -> None    
