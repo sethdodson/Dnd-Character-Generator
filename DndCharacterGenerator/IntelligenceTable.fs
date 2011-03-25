@@ -27,3 +27,17 @@ let maxWizardSpellLevel = function
 let maxSpellLevel = function
     | (Thaumaturge, s) -> maxWizardSpellLevel s
     | _ -> None    
+    
+let chanceWizardToLearnSpell = function
+    | s when s < 9 -> None
+    | s when s < 18 -> Some((s - 2) * 5)
+    | 18 -> Some(85)
+    | s when s < 25 -> Some(95 + (s - 19))
+    | 25 -> Some(100)
+    | _ -> failwith "Impossible intelligence"
+    
+let chanceToLearnSpell = function
+    | (Thaumaturge, Intelligence(s)) -> chanceWizardToLearnSpell s   
+    | _ -> None 
+    
+    

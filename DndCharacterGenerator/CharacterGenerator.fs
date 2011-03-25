@@ -73,4 +73,5 @@ let getCharacter() =
      (resurrectionSurvival adjustedAbilities.Constitution),
      (poisonSaveBonus adjustedAbilities.Constitution),
      (numberOfLanguages adjustedAbilities.Intelligence),
-     (maxSpellLevel (chosenClass, adjustedAbilities.Intelligence)))
+     (maxSpellLevel (chosenClass, adjustedAbilities.Intelligence)),
+     (chanceToLearnSpell (chosenClass, adjustedAbilities.Intelligence)))
