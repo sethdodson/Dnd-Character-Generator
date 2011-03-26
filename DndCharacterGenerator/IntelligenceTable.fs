@@ -59,4 +59,7 @@ let maxNumberOfSpellsPerLevel = function
     | (Thaumaturge, Intelligence(s)) -> maxNumberOfSpellsPerWizardLevel s
     | _ -> Limited(None)
     
-    
+let illusionImmunity = function
+    | Intelligence(s) when s < 19 -> None
+    | Intelligence(s) -> Some((s - 18))
+    | _ -> failwith "Not intelligence"

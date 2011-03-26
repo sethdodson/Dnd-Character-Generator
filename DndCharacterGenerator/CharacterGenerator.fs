@@ -11,6 +11,7 @@ open StrengthTable
 open DexterityTable
 open ConstitutionTable
 open IntelligenceTable
+open WisdomTable
                                                
 let getCharacter() = 
     let abilities = rollAbilityScores()
@@ -75,4 +76,6 @@ let getCharacter() =
      (numberOfLanguages adjustedAbilities.Intelligence),
      (maxSpellLevel (chosenClass, adjustedAbilities.Intelligence)),
      (chanceToLearnSpell (chosenClass, adjustedAbilities.Intelligence)),
-     (maxNumberOfSpellsPerLevel (chosenClass, adjustedAbilities.Intelligence)))
+     (maxNumberOfSpellsPerLevel (chosenClass, adjustedAbilities.Intelligence)),
+     (illusionImmunity adjustedAbilities.Intelligence),
+     (magicalDefenseAdjustment adjustedAbilities.Wisdom))
