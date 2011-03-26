@@ -14,6 +14,7 @@ let numberOfLanguages = function
     | Intelligence(25) -> 20
     | _ -> failwith "Not intelligence"
     
+    
 let maxWizardSpellLevel = function
     | Intelligence(s) when s < 9 -> None
     | Intelligence(9) -> Some(4)
@@ -39,5 +40,23 @@ let chanceWizardToLearnSpell = function
 let chanceToLearnSpell = function
     | (Thaumaturge, Intelligence(s)) -> chanceWizardToLearnSpell s   
     | _ -> None 
+    
+type SpellLimit = 
+    | Limited of int option
+    | All
+    
+let maxNumberOfSpellsPerWizardLevel = function
+    | 9 -> Limited(Some(6))
+    | s when s < 13 -> Limited(Some(7))
+    | 13 | 14 -> Limited(Some(9))
+    | 15 | 16 -> Limited(Some(11))
+    | 17 -> Limited(Some(14))
+    | 18 -> Limited(Some(18))
+    | s when s > 18 -> All
+    | _ -> failwith "Impossible intelligence"
+    
+let maxNumberOfSpellsPerLevel = function
+    | (Thaumaturge, Intelligence(s)) -> maxNumberOfSpellsPerWizardLevel s
+    | _ -> Limited(None)
     
     

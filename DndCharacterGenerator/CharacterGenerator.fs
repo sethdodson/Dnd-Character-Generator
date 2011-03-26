@@ -74,4 +74,5 @@ let getCharacter() =
      (poisonSaveBonus adjustedAbilities.Constitution),
      (numberOfLanguages adjustedAbilities.Intelligence),
      (maxSpellLevel (chosenClass, adjustedAbilities.Intelligence)),
-     (chanceToLearnSpell (chosenClass, adjustedAbilities.Intelligence)))
+     (chanceToLearnSpell (chosenClass, adjustedAbilities.Intelligence)),
+     (maxNumberOfSpellsPerLevel (chosenClass, adjustedAbilities.Intelligence)))
