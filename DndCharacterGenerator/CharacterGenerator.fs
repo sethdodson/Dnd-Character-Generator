@@ -78,4 +78,5 @@ let getCharacter() =
      (chanceToLearnSpell (chosenClass, adjustedAbilities.Intelligence)),
      (maxNumberOfSpellsPerLevel (chosenClass, adjustedAbilities.Intelligence)),
      (illusionImmunity adjustedAbilities.Intelligence),
-     (magicalDefenseAdjustment adjustedAbilities.Wisdom))
+     (magicalDefenseAdjustment adjustedAbilities.Wisdom),
+     bonusSpells (chosenClass, adjustedAbilities.Wisdom))
