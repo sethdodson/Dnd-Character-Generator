@@ -32,3 +32,10 @@ let bonusPriestSpells = function
 let bonusSpells = function
     | (Priest, Wisdom(s)) -> bonusPriestSpells (Wisdom(s))
     | _ -> None
+    
+let chanceOfSpellFailure = function
+    | Wisdom(1) -> 80
+    | Wisdom(2) -> 60
+    | Wisdom(s) when s < 13 -> (13 - s) * 5
+    | Wisdom(_) -> 0
+    | _ -> failwith "Not wisdom"
