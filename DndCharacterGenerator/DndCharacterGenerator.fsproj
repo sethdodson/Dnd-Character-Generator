@@ -48,6 +48,7 @@
     <Compile Include="StrengthTable.fs" />
     <Compile Include="DexterityTable.fs" />
     <Compile Include="ConstitutionTable.fs" />
+    <Compile Include="Magic.fs" />
     <Compile Include="IntelligenceTable.fs" />
     <Compile Include="WisdomTable.fs" />
     <Compile Include="CharacterGenerator.fs" />
