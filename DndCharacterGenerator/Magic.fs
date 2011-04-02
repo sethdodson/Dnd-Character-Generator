@@ -33,7 +33,7 @@ type WizardSpell =
       School: School
       Range: SpellRange
       Components: SpellComponent list
-      Duration: SpellDuration
+      Duration: SpellDuration }
       
       
       
