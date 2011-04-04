@@ -34,6 +34,4 @@ type WizardSpell =
       Range: SpellRange
       Components: SpellComponent list
       Duration: SpellDuration }
-      
-      
-      
+                  

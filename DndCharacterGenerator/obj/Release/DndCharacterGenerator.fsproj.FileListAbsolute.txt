@@ -1,0 +1,5 @@
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\bin\Release\DndCharacterGenerator.dll
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\bin\Release\DndCharacterGenerator.pdb
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\obj\Release\ResolveAssemblyReference.cache
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\obj\Release\DndCharacterGenerator.dll
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\obj\Release\DndCharacterGenerator.pdb

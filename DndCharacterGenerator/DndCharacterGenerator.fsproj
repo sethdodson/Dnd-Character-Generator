@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{728e2a06-7e26-4f83-a3ee-b174584f2842}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>DndCharacterGenerator</RootNamespace>
     <AssemblyName>DndCharacterGenerator</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
@@ -52,7 +52,6 @@
     <Compile Include="IntelligenceTable.fs" />
     <Compile Include="WisdomTable.fs" />
     <Compile Include="CharacterGenerator.fs" />
-    <Compile Include="Program.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
