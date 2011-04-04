@@ -23,5 +23,13 @@ namespace Interface
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
+            System.Windows.Data.CollectionViewSource agingViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("agingViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // agingViewSource.Source = [generic data source]
+        }
     }
 }

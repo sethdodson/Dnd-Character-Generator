@@ -1,1 +1,16 @@
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\bin\Debug\Interface.exe.config
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\bin\Debug\Interface.exe
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\bin\Debug\Interface.pdb
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\bin\Debug\DndCharacterGenerator.dll
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\bin\Debug\DndCharacterGenerator.pdb
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\MainWindow.baml
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\MainWindow.g.cs
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\App.g.cs
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface_MarkupCompile.cache
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface.g.resources
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface.Properties.Resources.resources
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface.exe
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface.pdb
