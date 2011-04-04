@@ -5,17 +5,5 @@
     <Window.Resources>
         <CollectionViewSource x:Key="agingViewSource" d:DesignSource="{d:DesignInstance my:Aging, CreateList=True}" />
     </Window.Resources>
-    <Grid DataContext="{StaticResource agingViewSource}">
-        <ListView Height="200" ItemsSource="{Binding}" Margin="136,120,-34,-9" Name="agingListView" SelectionMode="Single" Width="400">
-            <ListView.ItemContainerStyle>
-                <Style>
-                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch" />
-                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch" />
-                </Style>
-            </ListView.ItemContainerStyle>
-            <ListView.View>
-                <GridView />
-            </ListView.View>
-        </ListView>
-    </Grid>
+    <Grid DataContext="{StaticResource agingViewSource}"></Grid>
 </Window>
