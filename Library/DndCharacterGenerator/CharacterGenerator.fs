@@ -13,7 +13,7 @@ open ConstitutionTable
 open IntelligenceTable
 open WisdomTable
                                                
-let getCharacter() = 
+let getCharacter level = 
     let abilities = rollAbilityScores()
     let availableRaces = Race.AvailableRaces abilities
     let race = List.nth availableRaces (random.Next(0, availableRaces.Length))
@@ -58,7 +58,7 @@ let getCharacter() =
     let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)
     let charHitProbability = hitProbability (adjustedAbilities.Strength, charExceptionalStrength)
     let charDamageAdjustment = damageAdjustment (adjustedAbilities.Strength, charExceptionalStrength)
-    (alignment, race, chosenClass, 1, adjustedAbilities, 
+    (alignment, race, chosenClass, level, adjustedAbilities, 
      charExceptionalStrength, sex, age, charHeight, charWeight, 
      charHitProbability, charDamageAdjustment, 
      (weightAllow (adjustedAbilities.Strength, charExceptionalStrength)),

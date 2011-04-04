@@ -1,0 +1,1 @@
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\bin\Debug\Interface.exe.config
