@@ -14,6 +14,17 @@ type Specialization =
     | Invoker
     | Necromancer
     | Transmuter
+    member s.Name = 
+        match s with
+        | Mage -> "Mage"
+        | Abjurer -> "Abjurer"
+        | Conjurer -> "Conjurer"
+        | Diviner -> "Diviner"
+        | Enchanter -> "Enchanter"
+        | Illusionist -> "Illusionist"
+        | Invoker -> "Invoker"
+        | Necromancer -> "Necromancer"
+        | Transmuter -> "Transmuter"
 
 type CharacterClass = 
     | Fighter 
@@ -24,6 +35,16 @@ type CharacterClass =
     | Druid
     | Thief
     | Bard    
+    member cc.Name = 
+        match cc with
+        | Fighter -> "Fighter"
+        | Paladin -> "Paladin"
+        | Ranger -> "Ranger"
+        | Wizard(s) -> s.Name
+        | Cleric -> "Cleric"
+        | Druid -> "Druid"
+        | Thief -> "Thief"
+        | Bard -> "Bard"
     member cc.Minimums = 
         match cc with
         | Fighter -> [ Strength(9) ]

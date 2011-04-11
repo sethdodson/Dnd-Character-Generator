@@ -9,6 +9,14 @@ type Race =
     | Gnome
     | HalfElf
     | Halfling
+    member r.Name = 
+        match r with
+        | Human -> "Human"
+        | Dwarf -> "Dwarf"
+        | Elf -> "Elf"
+        | Gnome -> "Gnome"
+        | HalfElf -> "Half-Elf"
+        | Halfling -> "Halfling"
     member r.MeetsRequirements = 
         match r with 
         | Human -> (fun _ -> true)
@@ -56,10 +64,10 @@ type Race =
                             Intelligence = (6, 18);
                             Wisdom = (3, 17);
                             Charisma = (3, 18)
-                        }
+                        }                  
     static member AvailableRaces abilities = 
         [ Human; Dwarf; Elf; Gnome; HalfElf; Halfling ]
-        |> List.filter(fun r -> r.MeetsRequirements abilities)     
+        |> List.filter(fun r -> r.MeetsRequirements abilities)         
         
 let racialAdjustments (abilities:Abilities) race = 
     match race with

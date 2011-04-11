@@ -22,6 +22,8 @@ namespace Interface
         }
 
         public string Name { get; set; }
+        public string Alignment { get { return String.Format("{0} / {1}", _characterModel.Legality.Name, _characterModel.Morality.Name); } }
+        public string PlayerName { get; set; }    
 
         public CharacterViewModel()
         {

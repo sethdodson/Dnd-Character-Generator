@@ -4,11 +4,21 @@ type Legality =
     | Lawful
     | Neutral
     | Chaotic
-    
+    member l.Name = 
+        match l with
+        | Lawful -> "Lawful"
+        | Neutral -> "Neutral"
+        | Chaotic -> "Chaotic"    
+
 type Morality = 
     | Good
     | Neutral
     | Evil
+    member m.Name = 
+        match m with
+        | Good -> "Good"
+        | Neutral -> "Neutral"
+        | Evil -> "Evil"
     
 type Alignment = Legality * Morality
 

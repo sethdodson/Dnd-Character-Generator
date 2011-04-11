@@ -6,6 +6,10 @@ open Races
 type Sex = 
     | Male
     | Female
+    member s.Name = 
+        match s with
+        | Male -> "Male"
+        | Female -> "Female"
     
 let height = function
     | (Dwarf, Male) -> 43 + (roll 1 10)
