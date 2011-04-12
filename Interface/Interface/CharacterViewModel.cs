@@ -23,7 +23,16 @@ namespace Interface
 
         public string Name { get; set; }
         public string Alignment { get { return String.Format("{0} / {1}", _characterModel.Legality.Name, _characterModel.Morality.Name); } }
-        public string PlayerName { get; set; }    
+        public string PlayerName { get; set; }
+        public string Height
+        {
+            get
+            {
+                var feet = Math.Floor(_characterModel.Height / 12f);
+                var inches = _characterModel.Height % 12;
+                return String.Format("{0}' {1}''", feet, inches);
+            }
+        }
 
         public CharacterViewModel()
         {

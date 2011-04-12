@@ -2,6 +2,7 @@
 
 open Dice
 open Races
+open System
 
 type Sex = 
     | Male
@@ -18,12 +19,12 @@ let height = function
     | (Elf, Female) -> 50 + (roll 1 10)
     | (Gnome, Male) -> 38 + (roll 1 6)
     | (Gnome, Female) -> 36 + (roll 1 6)
-    | (HalfElf, Male) -> 60 + (roll 2 6)
+    | (HalfElf, Male) -> 60 + (roll 2 6)    
     | (HalfElf, Female) -> 58 + (roll 2 6)
     | (Halfling, Male) -> 32 + (roll 2 8)
     | (Halfling, Female) -> 30 + (roll 2 8)
     | (Human, Male) -> 60 + (roll 2 10)
-    | (Human, Female) -> 59 + (roll 2 10)
+    | (Human, Female) -> 59 + (roll 2 10)    
     
 let weight = function
     | (Dwarf, Male) -> 130 + (roll 4 10)
