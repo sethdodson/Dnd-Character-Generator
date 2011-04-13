@@ -51,6 +51,7 @@
     <Compile Include="Magic.fs" />
     <Compile Include="IntelligenceTable.fs" />
     <Compile Include="WisdomTable.fs" />
+    <Compile Include="CharismaTable.fs" />
     <Compile Include="CharacterGenerator.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\FSharp\1.0\Microsoft.FSharp.Targets" />

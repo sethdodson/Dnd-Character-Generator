@@ -30,7 +30,7 @@ namespace Interface
             {
                 var feet = Math.Floor(_characterModel.Height / 12f);
                 var inches = _characterModel.Height % 12;
-                return String.Format("{0}' {1}''", feet, inches);
+                return String.Format("{0}' {1}''", feet, inches);                
             }
         }
 

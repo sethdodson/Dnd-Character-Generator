@@ -12,7 +12,8 @@ open StrengthTable
 open DexterityTable
 open ConstitutionTable
 open IntelligenceTable
-open WisdomTable                     
+open WisdomTable   
+open CharismaTable                  
 
 
 type CharacterModel = 
@@ -49,7 +50,8 @@ type CharacterModel =
         IllusionImmunity: int option
         MagicalDefenseAdjustment: int
         BonusPriestSpells: (int * int) list option
-        ChanceOfSpellFailure: int                                              
+        ChanceOfSpellFailure: int  
+        MaximumNumberOfHenchmen: int                                            
     }      
                                                                    
 let getCharacter level = 
@@ -131,4 +133,5 @@ let getCharacter level =
         MagicalDefenseAdjustment = magicalDefenseAdjustment (adjustedAbilities.Wisdom)
         BonusPriestSpells = bonusSpells (chosenClass, adjustedAbilities.Wisdom)
         ChanceOfSpellFailure = chanceOfSpellFailure (adjustedAbilities.Wisdom)
+        MaximumNumberOfHenchmen = maximumNumberOfHenchmen (adjustedAbilities.Charisma)
     }

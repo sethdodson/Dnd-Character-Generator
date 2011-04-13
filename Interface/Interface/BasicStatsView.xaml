@@ -11,8 +11,8 @@
     </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
@@ -21,6 +21,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -37,10 +38,14 @@
         <TextBlock Text="Level" Grid.Column="6" Grid.Row="1" />
         <TextBlock Text="{Binding Path=CharacterModel.Level, Mode=OneWay}" Grid.Column="7" Grid.Row="1"/>
         <TextBlock Text="Sex" Grid.Column="0" Grid.Row="2" />
-        <TextBlock Text="{Binding Path=CharacterModel.Sex.Name}" Grid.Column="1" Grid.Row="2" />
+        <TextBlock Text="{Binding Path=CharacterModel.Sex.Name, Mode=OneWay}" Grid.Column="1" Grid.Row="2" />
         <TextBlock Text="Age" Grid.Column="2" Grid.Row="2" />
-        <TextBlock Text="{Binding Path=CharacterModel.Age}" Grid.Column="3" Grid.Row="2" />
+        <TextBlock Text="{Binding Path=CharacterModel.Age, Mode=OneWay}" Grid.Column="3" Grid.Row="2" />
         <TextBlock Text="Ht." Grid.Column="0" Grid.Row="3" />
-        <TextBlock Text="{Binding Height}" Grid.Column="1" Grid.Row="3" />
+        <TextBlock Text="{Binding Height, Mode=OneWay}" Grid.Column="1" Grid.Row="3" />
+        <TextBlock Text="Wt." Grid.Column="2" Grid.Row="3" />
+        <TextBlock Text="{Binding Path=CharacterModel.Weight, Mode=OneWay}" Grid.Column="3" Grid.Row="3" />
+        <TextBlock Text="Reaction adjustment" Grid.Column="0" Grid.Row="4" />
+        <TextBlock Text="{Binding Path=CharacterModel.MaximumNumberOfHenchmen, Mode=OneWay}" Grid.Column="1" Grid.Row="4" />
     </Grid>
 </UserControl>
