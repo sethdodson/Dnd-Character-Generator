@@ -14,7 +14,11 @@ C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\GenerateR
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface.exe
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface.pdb
-C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\BasicStatsView.g.cs
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\Interface_MarkupCompile.lref
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\BasicInformationView.g.cs
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\BasicInformationView.baml
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\BasicStatsView.g.cs
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\BasicStatsView.baml
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\AbilityScores.g.cs
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Debug\AbilityScores.baml

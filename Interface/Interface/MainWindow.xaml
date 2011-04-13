@@ -13,7 +13,9 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <local:BasicStatsView />
+        <local:BasicInformationView Grid.Column="0" Grid.Row="0" />
+        <local:BasicStatsView Grid.Column="0"         Grid.Row="1" />
     </Grid>
 </Window>
