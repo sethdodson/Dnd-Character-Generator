@@ -84,5 +84,15 @@
         <TextBlock Text="{Binding Path=CharacterModel.BonusPriestSpells, Mode=OneWay}" 
                    Grid.Column="4" Grid.Row="8" Grid.RowSpan="2"
                    VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Wgt" Grid.Column="4" Grid.Row="0" />
+        <TextBlock Text="Allow" Grid.Column="4" Grid.Row="1" />
+        <TextBlock Text="{Binding Path=CharacterModel.WeightAllow, Mode=OneWay}"
+                   Grid.Column="5" Grid.Row="0" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Missile" Grid.Column="4" Grid.Row="2" />
+        <TextBlock Text="Att Adj" Grid.Column="4" Grid.Row="3" />
+        <TextBlock Text="{Binding Path=CharacterModel.MissileAttackAdjustment, Mode=OneWay}"
+                   Grid.Column="5" Grid.Row="2" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />                           
     </Grid>
 </UserControl>
