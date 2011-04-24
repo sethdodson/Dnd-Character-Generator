@@ -52,7 +52,8 @@ type CharacterModel =
         BonusPriestSpells: int option
         ChanceOfSpellFailure: int  
         MaximumNumberOfHenchmen: int           
-        LoyaltyBase: int                                 
+        LoyaltyBase: int                      
+        CharismaReactionAdjustment: int           
     }      
                                                                    
 let getCharacter level = 
@@ -138,5 +139,6 @@ let getCharacter level =
             | None -> None
         ChanceOfSpellFailure = chanceOfSpellFailure (adjustedAbilities.Wisdom)
         MaximumNumberOfHenchmen = maximumNumberOfHenchmen (adjustedAbilities.Charisma)
-        LoyaltyBase = loyaltyBase adjustedAbilities.Charisma
+        LoyaltyBase = loyaltyBase adjustedAbilities.Charisma     
+        CharismaReactionAdjustment = charismaReactionAdjustment adjustedAbilities.Charisma   
     }

@@ -24,3 +24,11 @@ let loyaltyBase = function
     | Charisma(25) -> 20
     | _ -> failwith "Not charisma or impossible charisma"
     
+let charismaReactionAdjustment = function
+    | Charisma(s) when s < 9 -> s - 8
+    | Charisma(s) when s < 13 -> 0
+    | Charisma(13) -> 1
+    | Charisma(14) -> 2
+    | Charisma(15) -> 3
+    | Charisma(s) -> s - 11
+    | _ -> failwith "Not charisma"
