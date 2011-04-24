@@ -93,6 +93,11 @@
         <TextBlock Text="Att Adj" Grid.Column="4" Grid.Row="3" />
         <TextBlock Text="{Binding Path=CharacterModel.MissileAttackAdjustment, Mode=OneWay}"
                    Grid.Column="5" Grid.Row="2" Grid.RowSpan="2"
-                   VerticalAlignment="Center" TextAlignment="Center" />                           
+                   VerticalAlignment="Center" TextAlignment="Center" />     
+        <TextBlock Text="Res" Grid.Column="4" Grid.Row="4"  />
+        <TextBlock Text="Sur" Grid.Column="4" Grid.Row="5" />
+        <TextBlock Text="{Binding Path=CharacterModel.ResurrectionSurvival, Mode=OneWay}"
+                   Grid.Column="5" Grid.Row="4" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
     </Grid>
 </UserControl>
