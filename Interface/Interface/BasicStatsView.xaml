@@ -12,10 +12,14 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <local:AbilityScores Grid.Column="0" Grid.Row="0" />
+        <TextBlock Text="ABILITIES" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" TextAlignment="Center" />
+        <local:AbilityScores Grid.Column="0" Grid.Row="1" />
+        <local:AbilitiesView Grid.Column="1" Grid.Row="1" />
     </Grid>
 </UserControl>

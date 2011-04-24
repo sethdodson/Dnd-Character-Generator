@@ -39,7 +39,7 @@ namespace Interface
             }
         }
 
-        public int MaxSpellLevel { get { return _characterModel.MaxSpellLevel.Value; } }
+        public int MaxSpellLevel { get { return _characterModel.MaxSpellLevel == null ? 0 : _characterModel.MaxSpellLevel.Value; } }
 
         public CharacterViewModel()
         {
