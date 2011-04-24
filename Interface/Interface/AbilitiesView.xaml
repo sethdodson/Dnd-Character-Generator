@@ -104,5 +104,10 @@
         <TextBlock Text="{Binding Path=CharacterModel.ChanceToLearnSpell, Mode=OneWay}"
                    Grid.Column="5" Grid.Row="6" Grid.RowSpan="2" 
                    VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Loy" Grid.Column="4" Grid.Row="10" />
+        <TextBlock Text="Base" Grid.Column="4" Grid.Row="11" />
+        <TextBlock Text="{Binding Path=CharacterModel.LoyaltyBase, Mode=OneWay}" 
+                   Grid.Column="5" Grid.Row="10" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
     </Grid>
 </UserControl>

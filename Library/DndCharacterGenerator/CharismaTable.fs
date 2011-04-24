@@ -14,3 +14,13 @@ let maximumNumberOfHenchmen = function
     | Charisma(16) -> 8
     | Charisma(s) -> (s - 15) * 5
     | _ -> failwith "Not charisma"       
+    
+let loyaltyBase = function
+    | Charisma(s) when s < 10 -> s - 9
+    | Charisma(s) when s < 14 -> 0
+    | Charisma(14) -> 1
+    | Charisma(15) -> 3
+    | Charisma(s) when s < 25 -> (s - 14) * 2
+    | Charisma(25) -> 20
+    | _ -> failwith "Not charisma or impossible charisma"
+    

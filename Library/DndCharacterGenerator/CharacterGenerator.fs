@@ -51,7 +51,8 @@ type CharacterModel =
         MagicalDefenseAdjustment: int
         BonusPriestSpells: int option
         ChanceOfSpellFailure: int  
-        MaximumNumberOfHenchmen: int                                            
+        MaximumNumberOfHenchmen: int           
+        LoyaltyBase: int                                 
     }      
                                                                    
 let getCharacter level = 
@@ -137,4 +138,5 @@ let getCharacter level =
             | None -> None
         ChanceOfSpellFailure = chanceOfSpellFailure (adjustedAbilities.Wisdom)
         MaximumNumberOfHenchmen = maximumNumberOfHenchmen (adjustedAbilities.Charisma)
+        LoyaltyBase = loyaltyBase adjustedAbilities.Charisma
     }
