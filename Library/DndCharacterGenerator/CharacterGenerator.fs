@@ -49,7 +49,7 @@ type CharacterModel =
         MaxNumberOfSpellsPerLevel: SpellLimit
         IllusionImmunity: int option
         MagicalDefenseAdjustment: int
-        BonusPriestSpells: (int * int) list option
+        BonusPriestSpells: int option
         ChanceOfSpellFailure: int  
         MaximumNumberOfHenchmen: int                                            
     }      
@@ -98,7 +98,7 @@ let getCharacter level =
     let charWeight = (weight (race, sex))
     let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)
     let charHitProbability = hitProbability (adjustedAbilities.Strength, charExceptionalStrength)    
-    let charDamageAdjustment = damageAdjustment (adjustedAbilities.Strength, charExceptionalStrength)
+    let charDamageAdjustment = damageAdjustment (adjustedAbilities.Strength, charExceptionalStrength)    
     { 
         Legality = (fst alignment)
         Morality = (snd alignment)
@@ -131,7 +131,10 @@ let getCharacter level =
         MaxNumberOfSpellsPerLevel = maxNumberOfSpellsPerLevel (chosenClass, adjustedAbilities.Intelligence)
         IllusionImmunity = illusionImmunity (adjustedAbilities.Intelligence)
         MagicalDefenseAdjustment = magicalDefenseAdjustment (adjustedAbilities.Wisdom)
-        BonusPriestSpells = bonusSpells (chosenClass, adjustedAbilities.Wisdom)
+        BonusPriestSpells = 
+            match (bonusSpells (chosenClass, adjustedAbilities.Wisdom)) with
+            | Some(sps) -> sps |> List.map(fun sp -> fst sp) |> List.sum |> Some
+            | None -> None
         ChanceOfSpellFailure = chanceOfSpellFailure (adjustedAbilities.Wisdom)
         MaximumNumberOfHenchmen = maximumNumberOfHenchmen (adjustedAbilities.Charisma)
     }

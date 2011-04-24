@@ -22,3 +22,5 @@ C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Release\BasicSt
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Release\BasicStatsView.baml
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Release\AbilityScores.g.cs
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Release\AbilityScores.baml
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Release\AbilitiesView.g.cs
+C:\GitProjects\DndCharacterGenerator\Interface\Interface\obj\x86\Release\AbilitiesView.baml

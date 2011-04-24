@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Interface.AbilitiesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Interface"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <local:CharacterViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="ABILITIES" Grid.Row="0" Grid.Column="0" TextAlignment="Center" />
+        <TextBlock Text="Hit" Grid.Row="1" Grid.Column="0" />
+        <TextBlock Text="Prob" Grid.Row="2" Grid.Column="0" />
+        <TextBlock Text="{Binding Path=CharacterModel.HitProbability, Mode=OneWay}" 
+                   Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" 
+                   VerticalAlignment="Center" TextAlignment="Center"/>
+        <TextBlock Text="Rctn" Grid.Column="0" Grid.Row="3" />
+        <TextBlock Text="Adj" Grid.Column="0" Grid.Row="4" />
+        <TextBlock Text="{Binding Path=CharacterModel.DexReactionAdjustment, Mode=OneWay}"
+                   Grid.Column="1" Grid.Row="3" Grid.RowSpan="2" 
+                   VerticalAlignment="Center" TextAlignment="Center"/>
+        <TextBlock Text="HP" Grid.Column="0" Grid.Row="5" />
+        <TextBlock Text="Adj" Grid.Column="0" Grid.Row="6" />
+        <TextBlock Text="{Binding Path=CharacterModel.HitPointAdjustment, Mode=OneWay}"
+                   Grid.Column="1" Grid.Row="5" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="No of" Grid.Column="0" Grid.Row="7" />
+        <TextBlock Text="Lang" Grid.Column="0" Grid.Row="8" />
+        <TextBlock Text="{Binding Path=CharacterModel.NumberOfLanguages, Mode=OneWay}"
+                   Grid.Column="1" Grid.Row="7" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Mag Def" Grid.Column="0" Grid.Row="9" />
+        <TextBlock Text="Adjus" Grid.Column="0" Grid.Row="10" />
+        <TextBlock Text="{Binding Path=CharacterModel.MagicalDefenseAdjustment, Mode=OneWay}" 
+                   Grid.Column="1" Grid.Row="9" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Max No" Grid.Column="0" Grid.Row="11" />
+        <TextBlock Text="Hench" Grid.Column="0" Grid.Row="12" />
+        <TextBlock Text="{Binding Path=CharacterModel.MaximumNumberOfHenchmen, Mode=OneWay}"
+                   Grid.Column="1" Grid.Row="11" Grid.RowSpan="2"                   
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Dmg" Grid.Column="2" Grid.Row="0" />
+        <TextBlock Text="Adj" Grid.Column="2" Grid.Row="1" />
+        <TextBlock Text="{Binding Path=CharacterModel.DamageAdjustment, Mode=OneWay}"
+                   Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Sys" Grid.Column="2" Grid.Row="4" />
+        <TextBlock Text="Shk" Grid.Column="2" Grid.Row="5" />
+        <TextBlock Text="{Binding Path=CharacterModel.SystemShock, Mode=OneWay}"
+                   Grid.Column="3" Grid.Row="4" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Spell" Grid.Column="2" Grid.Row="6" />
+        <TextBlock Text="Lvl" Grid.Column="2" Grid.Row="7" />
+        <TextBlock Text="{Binding MaxSpellLevel, Mode=OneWay}"
+                   Grid.Column="3" Grid.Row="6" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Bonus" Grid.Column="3" Grid.Row="8" />
+        <TextBlock Text="Spells" Grid.Column="3" Grid.Row="9" />  
+        <TextBlock Text="{Binding Path=CharacterModel.BonusPriestSpells, Mode=OneWay}" 
+                   Grid.Column="4" Grid.Row="8" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
+    </Grid>
+</UserControl>

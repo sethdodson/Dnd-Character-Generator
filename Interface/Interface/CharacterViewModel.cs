@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Interface
 {
@@ -18,12 +19,16 @@ namespace Interface
                 if (value == _characterModel) return;
                 _characterModel = value;
                 RaisePropertyChanged("CharacterModel");
+                RaisePropertyChanged("Alignment");
+                RaisePropertyChanged("Height");
+                RaisePropertyChanged("MaxSpellLevel");
             }
         }
 
         public string Name { get; set; }
         public string Alignment { get { return String.Format("{0} / {1}", _characterModel.Legality.Name, _characterModel.Morality.Name); } }
         public string PlayerName { get; set; }
+
         public string Height
         {
             get
@@ -33,6 +38,8 @@ namespace Interface
                 return String.Format("{0}' {1}''", feet, inches);                
             }
         }
+
+        public int MaxSpellLevel { get { return _characterModel.MaxSpellLevel.Value; } }
 
         public CharacterViewModel()
         {

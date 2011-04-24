@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\GitProjects\DndCharacterGenerator\Interface\Interface\App.xaml
-41245841130
+5297337937
 
-9620354012
+10333865764
 141297041590
-AbilityScores.xaml;BasicInformationView.xaml;BasicStatsView.xaml;MainWindow.xaml;
+AbilitiesView.xaml;AbilityScores.xaml;BasicInformationView.xaml;BasicStatsView.xaml;MainWindow.xaml;
 
 False
 
