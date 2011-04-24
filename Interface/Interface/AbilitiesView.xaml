@@ -99,5 +99,10 @@
         <TextBlock Text="{Binding Path=CharacterModel.ResurrectionSurvival, Mode=OneWay}"
                    Grid.Column="5" Grid.Row="4" Grid.RowSpan="2"
                    VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Lrn" Grid.Column="4" Grid.Row="6" />
+        <TextBlock Text="Sp" Grid.Column="4" Grid.Row="7" />
+        <TextBlock Text="{Binding Path=CharacterModel.ChanceToLearnSpell, Mode=OneWay}"
+                   Grid.Column="5" Grid.Row="6" Grid.RowSpan="2" 
+                   VerticalAlignment="Center" TextAlignment="Center" />
     </Grid>
 </UserControl>
