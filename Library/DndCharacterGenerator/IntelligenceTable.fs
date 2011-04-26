@@ -13,8 +13,7 @@ let numberOfLanguages = function
     | Intelligence(24) -> 15
     | Intelligence(25) -> 20
     | _ -> failwith "Not intelligence"
-    
-    
+        
 let maxWizardSpellLevel = function
     | Intelligence(s) when s < 9 -> None
     | Intelligence(9) -> Some(4)
@@ -44,6 +43,11 @@ let chanceToLearnSpell = function
 type SpellLimit = 
     | Limited of int option
     | All
+    member sl.Description = 
+        match sl with
+        | Limited(None) -> "None"
+        | Limited(Some(sp)) -> sp.ToString()
+        | All -> "All"
     
 let maxNumberOfSpellsPerWizardLevel = function
     | 9 -> Limited(Some(6))
