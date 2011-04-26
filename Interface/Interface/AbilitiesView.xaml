@@ -130,6 +130,11 @@
         <TextBlock Text="Level" Grid.Column="7" Grid.Row="7" />
         <TextBlock Text="{Binding Path=CharacterModel.MaxNumberOfSpellsPerLevel.Description, Mode=OneWay}"
                    Grid.Column="8" Grid.Row="6" Grid.RowSpan="2"
-                   VerticalAlignment="Center" TextAlignment="Center" />                   
+                   VerticalAlignment="Center" TextAlignment="Center" />          
+        <TextBlock Text="Rctn" Grid.Column="8" Grid.Row="10" />
+        <TextBlock Text="Adj" Grid.Column="8" Grid.Row="11" />
+        <TextBlock Text="{Binding Path=CharacterModel.CharismaReactionAdjustment, Mode=OneWay}"
+                   Grid.Column="9" Grid.Row="10" Grid.RowSpan="2"
+                   VerticalAlignment="Center" TextAlignment="Center" />
     </Grid>
 </UserControl>
