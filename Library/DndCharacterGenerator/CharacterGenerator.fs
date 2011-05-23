@@ -54,6 +54,7 @@ type CharacterModel =
         MaximumNumberOfHenchmen: int           
         LoyaltyBase: int                      
         CharismaReactionAdjustment: int           
+        //HitPoints: int
     }      
                                                                    
 let getCharacter level = 
@@ -98,9 +99,7 @@ let getCharacter level =
         if coin = 0 then Male else Female
     let charHeight = (height (race, sex))
     let charWeight = (weight (race, sex))
-    let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)
-    let charHitProbability = hitProbability (adjustedAbilities.Strength, charExceptionalStrength)    
-    let charDamageAdjustment = damageAdjustment (adjustedAbilities.Strength, charExceptionalStrength)    
+    let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)            
     { 
         Legality = (fst alignment)
         Morality = (snd alignment)
@@ -113,8 +112,8 @@ let getCharacter level =
         Age = age
         Height = charHeight
         Weight = charWeight
-        HitProbability = charHitProbability
-        DamageAdjustment = charDamageAdjustment
+        HitProbability = hitProbability (adjustedAbilities.Strength, charExceptionalStrength)      
+        DamageAdjustment = damageAdjustment (adjustedAbilities.Strength, charExceptionalStrength)
         WeightAllow = weightAllow(adjustedAbilities.Strength, charExceptionalStrength)
         MaxPress = maxPress (adjustedAbilities.Strength, charExceptionalStrength)
         OpenDoors = openDoors (adjustedAbilities.Strength, charExceptionalStrength)
@@ -141,4 +140,5 @@ let getCharacter level =
         MaximumNumberOfHenchmen = maximumNumberOfHenchmen (adjustedAbilities.Charisma)
         LoyaltyBase = loyaltyBase adjustedAbilities.Charisma     
         CharismaReactionAdjustment = charismaReactionAdjustment adjustedAbilities.Charisma   
+       // HitPoints = 
     }

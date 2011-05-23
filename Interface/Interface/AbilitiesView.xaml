@@ -136,5 +136,7 @@
         <TextBlock Text="{Binding Path=CharacterModel.CharismaReactionAdjustment, Mode=OneWay}"
                    Grid.Column="9" Grid.Row="10" Grid.RowSpan="2"
                    VerticalAlignment="Center" TextAlignment="Center" />
+        <TextBlock Text="Opn" Grid.Column="8" Grid.Row="0" />
+        <TextBlock Text="Drs" Grid.Column="8" Grid.Row="1" />
     </Grid>
 </UserControl>
