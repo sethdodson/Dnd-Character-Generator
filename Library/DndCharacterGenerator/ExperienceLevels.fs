@@ -11,7 +11,8 @@ let hitPoints = function
     | (Priest, level, hitPointBonus) when level < 10 -> (roll level 8) + hitPointBonus
     | (Priest, level, hitPointBonus) -> (roll 9 8) + ((level - 9) * 2) + hitPointBonus
     | (Rogue, level, hitPointBonus) when level < 11 -> (roll level 6) + hitPointBonus
-    | (Rogue, level, hitPointBonus) -> (roll 10 6) + ((level - 10) * 2) + hitPointBonus        
+    | (Rogue, level, hitPointBonus) -> (roll 10 6) + ((level - 10) * 2) + hitPointBonus            
+                
     
 let (|BasicWarriorXp|RangerXp|WizardXp|ClericXp|DruidXp|RogueXp|) = function
     | Fighter -> BasicWarriorXp

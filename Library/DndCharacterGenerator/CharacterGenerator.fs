@@ -14,7 +14,8 @@ open ConstitutionTable
 open IntelligenceTable
 open WisdomTable   
 open CharismaTable                  
-
+open ExperienceLevels
+open ClassAbilities
 
 type CharacterModel = 
     { 
@@ -54,7 +55,7 @@ type CharacterModel =
         MaximumNumberOfHenchmen: int           
         LoyaltyBase: int                      
         CharismaReactionAdjustment: int           
-        //HitPoints: int
+        HitPoints: int
     }      
                                                                    
 let getCharacter level = 
@@ -99,6 +100,7 @@ let getCharacter level =
         if coin = 0 then Male else Female
     let charHeight = (height (race, sex))
     let charWeight = (weight (race, sex))
+    let hitPointBonus = hitPointAdjustment (adjustedAbilities.Constitution, chosenClass)
     let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)            
     { 
         Legality = (fst alignment)
@@ -122,7 +124,7 @@ let getCharacter level =
         DexReactionAdjustment = dexReactionAdjustment (adjustedAbilities.Dexterity)
         MissileAttackAdjustment = missileAttackAdjustment (adjustedAbilities.Dexterity)
         DefensiveAdjustment = defensiveAdjustment (adjustedAbilities.Dexterity)
-        HitPointAdjustment = hitPointAdjustment (adjustedAbilities.Constitution, chosenClass)
+        HitPointAdjustment = hitPointBonus
         SystemShock = systemShock (adjustedAbilities.Constitution)
         ResurrectionSurvival = resurrectionSurvival (adjustedAbilities.Constitution)
         PoisonSaveBonus = poisonSaveBonus(adjustedAbilities.Constitution)
@@ -140,5 +142,5 @@ let getCharacter level =
         MaximumNumberOfHenchmen = maximumNumberOfHenchmen (adjustedAbilities.Charisma)
         LoyaltyBase = loyaltyBase adjustedAbilities.Charisma     
         CharismaReactionAdjustment = charismaReactionAdjustment adjustedAbilities.Charisma   
-       // HitPoints = 
+        HitPoints = hitPoints (chosenClass, level, hitPointBonus)
     }
