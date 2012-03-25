@@ -1,0 +1,8 @@
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\bin\Debug\Console.XML
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\bin\Debug\Console.exe
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\bin\Debug\Console.pdb
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\bin\Debug\DndCharacterGenerator.dll
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\bin\Debug\DndCharacterGenerator.pdb
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\obj\x86\Debug\Console.exe
+C:\GitProjects\DndCharacterGenerator\DndCharacterGenerator\Console\obj\x86\Debug\Console.pdb
