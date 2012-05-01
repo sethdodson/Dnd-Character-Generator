@@ -28,7 +28,7 @@ type CharacterModel =
         ExceptionalStrength: int        
         Sex: Sex
         Age: int
-        Height: int
+        Height: Height
         Weight: int
         HitProbability: int
         DamageAdjustment: int
@@ -44,6 +44,7 @@ type CharacterModel =
         SystemShock: int
         ResurrectionSurvival: int
         PoisonSaveBonus: int
+        Regeneration: (int * int) option
         NumberOfLanguages: int
         MaxSpellLevel: int option
         ChanceToLearnSpell: int option
@@ -98,7 +99,7 @@ let getCharacter level =
     let sex = 
         let coin = (random.Next(0, 1))
         if coin = 0 then Male else Female
-    let charHeight = (height (race, sex))
+    let charHeight = (Height.GetHeight (race, sex))
     let charWeight = (weight (race, sex))
     let hitPointBonus = hitPointAdjustment (adjustedAbilities.Constitution, chosenClass)
     let charExceptionalStrength = exceptionalStrength (chosenClass, adjustedAbilities.Strength, race)            
@@ -128,6 +129,7 @@ let getCharacter level =
         SystemShock = systemShock (adjustedAbilities.Constitution)
         ResurrectionSurvival = resurrectionSurvival (adjustedAbilities.Constitution)
         PoisonSaveBonus = poisonSaveBonus(adjustedAbilities.Constitution)
+        Regeneration = regeneration adjustedAbilities.Constitution
         NumberOfLanguages = numberOfLanguages(adjustedAbilities.Intelligence)
         MaxSpellLevel = maxSpellLevel (chosenClass, adjustedAbilities.Intelligence)
         ChanceToLearnSpell = chanceToLearnSpell (chosenClass, adjustedAbilities.Intelligence)

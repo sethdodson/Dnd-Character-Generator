@@ -3,7 +3,7 @@
 open Dice
 
 type Ability = 
-    | Strength of int 
+    | Strength of int
     | Dexterity of int
     | Constitution of int
     | Intelligence of int
