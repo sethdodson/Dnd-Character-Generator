@@ -51,7 +51,7 @@ type CharacterModel =
         MaxNumberOfSpellsPerLevel: SpellLimit
         IllusionImmunity: int option
         MagicalDefenseAdjustment: int
-        BonusPriestSpells: int option
+        BonusPriestSpells: int list
         ChanceOfSpellFailure: int  
         MaximumNumberOfHenchmen: int           
         LoyaltyBase: int                      
@@ -136,10 +136,7 @@ let getCharacter level =
         MaxNumberOfSpellsPerLevel = maxNumberOfSpellsPerLevel (chosenClass, adjustedAbilities.Intelligence)
         IllusionImmunity = illusionImmunity (adjustedAbilities.Intelligence)
         MagicalDefenseAdjustment = magicalDefenseAdjustment (adjustedAbilities.Wisdom)
-        BonusPriestSpells = 
-            match (bonusSpells (chosenClass, adjustedAbilities.Wisdom)) with
-            | Some(sps) -> sps |> List.map(fun sp -> fst sp) |> List.sum |> Some
-            | None -> None
+        BonusPriestSpells = bonusSpells adjustedAbilities.Wisdom
         ChanceOfSpellFailure = chanceOfSpellFailure (adjustedAbilities.Wisdom)
         MaximumNumberOfHenchmen = maximumNumberOfHenchmen (adjustedAbilities.Charisma)
         LoyaltyBase = loyaltyBase adjustedAbilities.Charisma     

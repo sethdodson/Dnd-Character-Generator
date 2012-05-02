@@ -11,28 +11,26 @@ let magicalDefenseAdjustment = function
     | Wisdom(s) when s < 20 -> s - 14
     | Wisdom(_) -> 4
     | _ -> failwith "Not wisdom"   
-    
-let bonusPriestSpells = function
-    | Wisdom(s) when s < 13 -> None
-    | Wisdom(13) -> Some([(1, 1)])
-    | Wisdom(14) -> Some([(2, 1)])
-    | Wisdom(15) -> Some([(2, 1); (1, 2)])
-    | Wisdom(16) -> Some([(2, 1); (2, 2)])
-    | Wisdom(17) -> Some([(2, 1); (2, 2); (1, 3)])
-    | Wisdom(18) -> Some([(2, 1); (2, 2); (1, 3); (1, 4)])
-    | Wisdom(19) -> Some([(3, 1); (2, 2); (2, 3); (1, 4)])
-    | Wisdom(20) -> Some([(3, 1); (3, 2); (2, 3); (2, 4)])
-    | Wisdom(21) -> Some([(3, 1); (3, 2); (3, 3); (2, 4); (1, 5)])
-    | Wisdom(22) -> Some([(3, 1); (3, 2); (3, 3); (3, 4); (2, 5)])
-    | Wisdom(23) -> Some([(4, 1); (3, 2); (3, 3); (3, 4); (2, 5); (1, 6);])
-    | Wisdom(24) -> Some([(4, 1); (3, 2); (3, 3); (3, 4); (3, 5); (2, 6);])
-    | Wisdom(25) -> Some([(4, 1); (3, 2); (3, 3); (3, 4); (3, 5); (3, 6); (1, 7);])
-    | _ -> failwith "Impossible wisdom"
-    
-let bonusSpells = function
-    | (Priest, Wisdom(s)) -> bonusPriestSpells (Wisdom(s))
-    | _ -> None
-    
+
+let bonusSpells wisdom = 
+    let rec accumulateBonus acc wis = 
+        match wis with
+        | Wisdom(13) -> accumulateBonus (1::acc) (Wisdom(12))
+        | Wisdom(14) -> accumulateBonus (1::acc) (Wisdom(13))
+        | Wisdom(15) -> accumulateBonus (2::acc) (Wisdom(14))
+        | Wisdom(16) -> accumulateBonus (2::acc) (Wisdom(15))
+        | Wisdom(17) -> accumulateBonus (3::acc) (Wisdom(16))
+        | Wisdom(18) -> accumulateBonus (4::acc) (Wisdom(17))
+        | Wisdom(19) -> accumulateBonus (List.append [1; 3] acc) (Wisdom(18))
+        | Wisdom(20) -> accumulateBonus (List.append [2; 4] acc) (Wisdom(19))
+        | Wisdom(21) -> accumulateBonus (List.append [3; 5] acc) (Wisdom(20))
+        | Wisdom(22) -> accumulateBonus (List.append [4; 5] acc) (Wisdom(21))
+        | Wisdom(23) -> accumulateBonus (List.append [1; 6] acc) (Wisdom(22))
+        | Wisdom(24) -> accumulateBonus (List.append [5; 6] acc) (Wisdom(23))
+        | Wisdom(25) -> accumulateBonus (List.append [6; 7] acc) (Wisdom(24))
+        | _ -> acc
+    accumulateBonus [] wisdom
+   
 let chanceOfSpellFailure = function
     | Wisdom(1) -> 80
     | Wisdom(2) -> 60

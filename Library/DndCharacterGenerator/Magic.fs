@@ -1,7 +1,5 @@
 ﻿module Magic
 
-type SpellType = WizardSpell | PriestSpell
-
 type School = 
     | Illusion
     | Enchantment
@@ -33,5 +31,6 @@ type WizardSpell =
       School: School
       Range: SpellRange
       Components: SpellComponent list
-      Duration: SpellDuration }
-                  
+      Duration: SpellDuration
+      Level: int }
+                      
