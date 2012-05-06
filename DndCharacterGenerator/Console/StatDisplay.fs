@@ -41,5 +41,17 @@ let displayIllusionImmunity = function
     | Some(1) -> "1st-level"
     | Some(2) -> "2nd-level"
     | Some(3) -> "3rd-level"
-    | Some(x) -> String.Format("{0}th-level")
+    | Some(x) -> String.Format("{0}th-level", x)
     | None -> "-"
+
+let displayBonusSpells = 
+    let level = function
+        | (1) -> "1st"
+        | (2) -> "2nd"
+        | (3) -> "3rd"
+        | (l) -> String.Format("{0}th", l)
+    let levels = List.map(level) >> List.toArray
+    let separate = function
+        | [||] -> "-"
+        | levels -> String.Join(", ", levels)
+    levels >> separate

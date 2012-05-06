@@ -29,7 +29,7 @@ let bonusSpells wisdom =
         | Wisdom(24) -> accumulateBonus (List.append [5; 6] acc) (Wisdom(23))
         | Wisdom(25) -> accumulateBonus (List.append [6; 7] acc) (Wisdom(24))
         | _ -> acc
-    accumulateBonus [] wisdom
+    (accumulateBonus [] wisdom) |> List.sort
    
 let chanceOfSpellFailure = function
     | Wisdom(1) -> 80

@@ -54,5 +54,5 @@ Console.WriteLine("Chance to Learn Spell: {0}", displayChanceToLearnSpell charac
 Console.WriteLine("Max Number of Spells Per Level: {0}", characterModel.MaxNumberOfSpellsPerLevel.Description)
 Console.WriteLine("Illusion Immunity: {0}", displayIllusionImmunity characterModel.IllusionImmunity)
 Console.WriteLine("Magical Defense Adjustment: {0}", showSign characterModel.MagicalDefenseAdjustment)
-
+Console.WriteLine("Bonus Spells: {0}", displayBonusSpells characterModel.BonusPriestSpells)
 Console.ReadLine() |> ignore
