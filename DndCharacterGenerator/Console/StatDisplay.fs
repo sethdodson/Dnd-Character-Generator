@@ -9,8 +9,16 @@ let showSign (num:int) = num.ToString("+#;-#;0")
 
 let displayStrength (cm:CharacterModel) = 
     let showStrength = function
-        | (st, 0) -> st.ToString()
+        | (st, 0) when st < 19 -> st.ToString()
         | (st, e) -> String.Format("{0}/{1}", st, e)
+        | (19, _) -> "19 (Hill Giant)"
+        | (20, _) -> "20 (Stone Giant)"
+        | (21, _) -> "21 (Frost Giant)"
+        | (22, _) -> "22 (Fire Giant)"
+        | (23, _) -> "23 (Cloud Giant)"
+        | (24, _) -> "24 (Storm Giant)"
+        | (25, _) -> "25 (Titan)"
+        | _ -> failwith "No Strength"
     showStrength (cm.Abilities.Strength.Stat, cm.ExceptionalStrength)
 
 let displayHitProbability = function 
@@ -55,3 +63,7 @@ let displayBonusSpells =
         | [||] -> "-"
         | levels -> String.Join(", ", levels)
     levels >> separate
+
+let displayImmunity = function
+    | [] -> "-"
+    | immunities -> String.Join(", ", (List.toArray immunities))

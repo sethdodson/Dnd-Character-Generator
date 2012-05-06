@@ -55,4 +55,7 @@ Console.WriteLine("Max Number of Spells Per Level: {0}", characterModel.MaxNumbe
 Console.WriteLine("Illusion Immunity: {0}", displayIllusionImmunity characterModel.IllusionImmunity)
 Console.WriteLine("Magical Defense Adjustment: {0}", showSign characterModel.MagicalDefenseAdjustment)
 Console.WriteLine("Bonus Spells: {0}", displayBonusSpells characterModel.BonusPriestSpells)
+Console.WriteLine("Chance of Spell Failure: {0}%", characterModel.ChanceOfSpellFailure)
+Console.WriteLine("Maximum Number of Henchmen: {0}", characterModel.MaximumNumberOfHenchmen)
+Console.WriteLine("Spell Immunity: {0}", displayImmunity characterModel.SpellImmunity)
 Console.ReadLine() |> ignore

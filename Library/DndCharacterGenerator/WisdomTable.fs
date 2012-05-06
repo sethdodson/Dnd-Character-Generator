@@ -37,3 +37,20 @@ let chanceOfSpellFailure = function
     | Wisdom(s) when s < 13 -> (13 - s) * 5
     | Wisdom(_) -> 0
     | _ -> failwith "Not wisdom"
+
+let spellImmunity wisdom = 
+    let immunity = function
+        | Wisdom(19) -> ["cause fear"; "charm person"; "command"; "friends"; "hypnotism"]
+        | Wisdom(20) -> ["forget"; "hold person"; "ray of enfeeblement"; "scare"]
+        | Wisdom(21) -> ["fear"]
+        | Wisdom(22) -> ["charm monster"; "confusion"; "emotion"; "fumble"; "suggestion"]
+        | Wisdom(23) -> ["chaos"; "feeblemind"; "hold monster"; "magic jar"; "quest"]
+        | Wisdom(24) -> ["geas"; "mass suggestion"; "rod of rulership"]
+        | Wisdom(25) -> ["antipathy/sympathy"; "death spell"; "mass charm"]
+        | _ -> []
+    let rec accumulateImmunity acc wis = 
+        match wis with
+        | Wisdom(s) when s < 19 -> acc
+        | Wisdom(s) -> accumulateImmunity (List.append (immunity (Wisdom(s))) acc) (Wisdom(s - 1))
+        | _ -> failwith "Not wisdom"
+    accumulateImmunity [] wisdom 

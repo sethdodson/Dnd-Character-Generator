@@ -57,6 +57,7 @@ type CharacterModel =
         LoyaltyBase: int                      
         CharismaReactionAdjustment: int           
         HitPoints: int
+        SpellImmunity: string list
     }      
                                                                    
 let getCharacter level = 
@@ -142,4 +143,5 @@ let getCharacter level =
         LoyaltyBase = loyaltyBase adjustedAbilities.Charisma     
         CharismaReactionAdjustment = charismaReactionAdjustment adjustedAbilities.Charisma   
         HitPoints = hitPoints (chosenClass, level, hitPointBonus)
+        SpellImmunity = spellImmunity adjustedAbilities.Wisdom
     }
