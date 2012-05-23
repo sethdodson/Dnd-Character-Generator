@@ -1,6 +1,0 @@
-C:\GitProjects\DndCharacterGenerator\KnockoutCharacterGenerator\FlashCards\FlashCardsFSharp\bin\Debug\FlashCardsFSharp.XML
-C:\GitProjects\DndCharacterGenerator\KnockoutCharacterGenerator\FlashCards\FlashCardsFSharp\bin\Debug\FlashCardsFSharp.dll
-C:\GitProjects\DndCharacterGenerator\KnockoutCharacterGenerator\FlashCards\FlashCardsFSharp\bin\Debug\FlashCardsFSharp.pdb
-C:\GitProjects\DndCharacterGenerator\KnockoutCharacterGenerator\FlashCards\FlashCardsFSharp\obj\Debug\ResolveAssemblyReference.cache
-C:\GitProjects\DndCharacterGenerator\KnockoutCharacterGenerator\FlashCards\FlashCardsFSharp\obj\Debug\FlashCardsFSharp.dll
-C:\GitProjects\DndCharacterGenerator\KnockoutCharacterGenerator\FlashCards\FlashCardsFSharp\obj\Debug\FlashCardsFSharp.pdb
